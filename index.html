@@ -8,7 +8,7 @@
   <meta property="og:title" content="Vipanshu Singh — AI / Computer Vision">
   <meta property="og:description" content="AI, computer vision, satellite intelligence and machine learning systems.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/hero-earth.png">
+  <meta property="og:image" content="hero-earth.png">
   <title>Vipanshu Singh — AI / Computer Vision</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -397,6 +397,14 @@
       .stat:nth-child(4){border-right:0;border-bottom:0}
     }
 
+  
+    .hero-image img{object-position:center center !important}
+    .project-media img{object-position:center center !important}
+    .orbit-image img{object-position:center center !important}
+    .image-missing{background:
+      radial-gradient(circle at 50% 40%,rgba(109,213,255,.16),transparent 45%),
+      #081018 !important}
+
   </style>
 </head>
 <body class='loading'>
@@ -460,7 +468,7 @@
         <div class="hero-art reveal">
           <div class="hero-image" id="heroImage">
             <div class="hero-glow"></div>
-            <img src="assets/hero-earth.png" alt="Astronaut standing on a lunar surface with Earth in the background">
+            <img data-local src="hero-earth.png" alt="Astronaut standing on a lunar surface with Earth in the background">
             <div class="coord">VISUAL / EARTH-01 · REMOTE SENSING</div>
             <div class="hero-floating"><span class="small">Current focus</span><strong>AI × <b>Vision</b></strong><span class="small">from pixels → decisions</span></div>
             <div class="art-label">IMAGERY → INTELLIGENCE</div>
@@ -538,7 +546,7 @@
         <div class="projects">
           <article class="project reveal">
             <div class="project-media">
-              <img src="assets/earth-surface.png" alt="Astronaut chair scene with Earth in the distance">
+              <img data-local src="earth-surface.png" alt="Astronaut chair scene with Earth in the distance">
               <span class="project-index">01 / MARITIME</span><span class="media-index">SATELLITE / CV</span>
             </div>
             <div class="project-info">
@@ -568,7 +576,7 @@
 
           <article class="project reveal">
             <div class="project-media">
-              <img src="assets/astronaut-orbit.png" alt="Illustrated astronaut floating with a paper airplane">
+              <img data-local src="astronaut-orbit.png" alt="Illustrated astronaut floating with a paper airplane">
               <span class="project-index">02 / AGRICULTURE</span><span class="media-index">ML / PREDICTION</span>
             </div>
             <div class="project-info">
@@ -601,7 +609,7 @@
     <section class="section">
       <div class="wrap orbit-break">
         <div class="orbit-image reveal">
-          <img src="assets/astronaut-red.png" alt="Astronaut floating above Earth">
+          <img data-local src="astronaut-red.png" alt="Astronaut floating above Earth">
         </div>
         <div class="orbit-copy reveal">
           <div class="eyebrow">04 / Direction</div>
@@ -786,6 +794,23 @@
       links.style.cssText = open ? '' :
         'display:flex;position:absolute;right:0;top:56px;flex-direction:column;align-items:flex-start;padding:18px;background:rgba(5,7,10,.97);border:1px solid rgba(255,255,255,.1);border-radius:18px;width:210px;';
     });
+  
+    // Robust local-image loading: keeps the visual cards intact when opened from
+    // different static-hosting layouts.
+    document.querySelectorAll('img[data-local]').forEach(img => {
+      const candidates = [img.getAttribute('src'), './' + img.getAttribute('src')];
+      let attempt = 0;
+      img.addEventListener('error', () => {
+        attempt++;
+        if (attempt < candidates.length) {
+          img.src = candidates[attempt];
+        } else {
+          img.style.opacity = '0';
+          img.parentElement.classList.add('image-missing');
+        }
+      }, {once:false});
+    });
+
   </script>
 </body>
 </html>
