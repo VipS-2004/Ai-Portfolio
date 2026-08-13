@@ -673,11 +673,19 @@
   </main>
 
   <footer>
-    <div class="wrap footer-inner">
+    <div class="wrap footer-inner" style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
       <span>© 2026 Vipanshu Singh · Built with intent.</span>
+      
+      <!-- FlyRank Graduate Badge -->
+      <a href="https://internship.flyrank.ai/intern" target="_blank" rel="noopener" style="text-decoration: none; color: #74e7b2; border: 1px solid rgba(116,231,178,.22); padding: 6px 12px; border-radius: 999px; background: rgba(116,231,178,.04); font-size: 9px; display: inline-flex; align-items: center; gap: 6px;">
+        <span style="width: 5px; height: 5px; border-radius: 50%; background: #74e7b2; display: inline-block;"></span>
+        FlyRank Graduate (Pending Verification)
+      </a>
+
       <span>AI / CV / SATELLITE INTELLIGENCE · <b style="color:#82909c">⌘K / CTRL+K</b> NAV</span>
     </div>
   </footer>
+
 
   <script>
     // Loader
@@ -711,7 +719,7 @@
 
     // Cursor
     const dot = document.getElementById('cursorDot');
-    const ring = document.getElementById('cursorRing');
+    const ring = document.getElementById('cursorRing');S
     let mx = innerWidth/2, my = innerHeight/2, rx = mx, ry = my;
     window.addEventListener('mousemove', e => {
       mx=e.clientX; my=e.clientY;
