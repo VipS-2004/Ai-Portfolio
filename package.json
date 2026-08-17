@@ -1,0 +1,23 @@
+{
+  "name": "vipanshu-singh-portfolio",
+  "version": "1.0.0",
+  "description": "Premium space-inspired AI/Computer Vision portfolio.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VipS-2004/Ai-Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VipS-2004/Ai-Portfolio/issues"
+  },
+  "homepage": "https://github.com/VipS-2004/Ai-Portfolio#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
